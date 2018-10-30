@@ -29,49 +29,67 @@ class Form extends Component {
         "Content-type": "application/json"
       },
       body: JSON.stringify(this.state)
-    });
+    })
+      .then(response => response.json())
+      .then(res => console.log(res));
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          <h3>Your name:</h3>
-          <input
-            type="text"
-            name="userName"
-            value={this.state.userName}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          <h3>What was the title of the session?</h3>
-          <input
-            type="text"
-            name="session"
-            value={this.state.session}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          <h3>What was good about the session?</h3>
-          <input
-            type="text"
-            name="feedbackPositive"
-            value={this.state.feedbackPositive}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          <h3>What could be improved?</h3>
-          <input
-            type="text"
-            name="feedbackNegative"
-            value={this.state.feedbackNegative}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
+        <div className="form-group">
+          <label>
+            <h4>Your name:</h4>
+            <input
+              className="form-control"
+              type="text"
+              name="userName"
+              value={this.state.userName}
+              onChange={this.handleChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <h4>What was the title of the session?</h4>
+            <input
+              className="form-control"
+              type="text"
+              name="session"
+              value={this.state.session}
+              onChange={this.handleChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <h4>What was good about the session?</h4>
+            <textarea
+              className="form-control"
+              rows="5"
+              type="text"
+              name="feedbackPositive"
+              value={this.state.feedbackPositive}
+              onChange={this.handleChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <h4>What could be improved?</h4>
+            <textarea
+              className="form-control"
+              rows="5"
+              type="text"
+              name="feedbackNegative"
+              value={this.state.feedbackNegative}
+              onChange={this.handleChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <input type="submit" className="btn btn-primary" value="Submit" />
+        </div>
       </form>
     );
   }
