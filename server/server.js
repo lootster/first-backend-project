@@ -16,6 +16,6 @@ db.on("error", error => {
   console.error("An error has occur", error);
 });
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000 ...")
+app.listen(3001, () => {
+  console.log("Listening on port 3001 ...")
 });
