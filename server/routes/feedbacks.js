@@ -5,10 +5,10 @@ const Feedback = require("../models/feedback");
 router.post("/", async (req, res, next) => {
   try {
     const newFeedback = new Feedback({
+      userName: req.body.userName,
       session: req.body.session,
       feedbackPositive: req.body.feedbackPositive,
-      feedbackNegative: req.body.feedbackNegative,
-      trainee: req.body.trainee
+      feedbackNegative: req.body.feedbackNegative
     });
     await newFeedback.save();
     res.status(201).json({

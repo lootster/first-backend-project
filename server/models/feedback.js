@@ -13,9 +13,8 @@ const feedbackSchema = Schema({
   feedbackNegative: {
     type: String
   },
-  trainee: {
-    type: Schema.Types.ObjectId,
-    ref: "Trainee"
+  userName: {
+    type: String
   }
 });
 

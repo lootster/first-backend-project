@@ -3,11 +3,11 @@ import React, { Component } from "react";
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       userName: "",
       session: "",
       feedbackPositive: "",
-      feedbackNegative: "",
+      feedbackNegative: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,15 +20,23 @@ class Form extends Component {
 
   handleSubmit(event) {
     alert("A feedback was submitted by " + this.state.userName);
+
     event.preventDefault();
 
+    fetch("/feedbacks", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Choose your name: 
+          <h3>Your name:</h3>
           <input
             type="text"
             name="userName"
@@ -37,7 +45,7 @@ class Form extends Component {
           />
         </label>
         <label>
-          What was the title of the session? 
+          <h3>What was the title of the session?</h3>
           <input
             type="text"
             name="session"
@@ -46,7 +54,7 @@ class Form extends Component {
           />
         </label>
         <label>
-          What was good about the session? 
+          <h3>What was good about the session?</h3>
           <input
             type="text"
             name="feedbackPositive"
@@ -55,7 +63,7 @@ class Form extends Component {
           />
         </label>
         <label>
-          What could be improved? 
+          <h3>What could be improved?</h3>
           <input
             type="text"
             name="feedbackNegative"
