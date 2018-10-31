@@ -19,10 +19,10 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res,next) => {
+router.get("/", async (req, res, next) => {
   try {
-    const result = await Feedback.find().populate("trainee");
-    res.status(200).json(result); 
+    const result = await Feedback.find({});
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }

@@ -5,7 +5,6 @@ const uniqueValidator = require("mongoose-unique-validator");
 const feedbackSchema = Schema({
   session: {
     type: String,
-    unique: true
   },
   feedbackPositive: {
     type: String
