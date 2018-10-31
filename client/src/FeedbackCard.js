@@ -6,12 +6,21 @@ const FeedbackCard = props => {
     feedback: { userName, session, feedbackPositive, feedbackNegative }
   } = props;
   return (
-    <div className="header" key={index}>
-      <h3>{`Feedback: ${index + 1}`}</h3>
-      <h4>{userName}</h4>
-      <h4>{session}</h4>
-      <h6>{feedbackPositive}</h6>
-      <h6>{feedbackNegative}</h6>
+    <div class="col-sm-4">
+    <div className="card border-dark mb-3">
+      <h3 className="card-header">{`Feedback : ${index + 1}`}</h3>
+      <div className="card-body">
+        <h5 className="card-title">Title of the session</h5>
+        <p className="card-text">{session}</p>
+        <h5 className="card-title">Comments about session</h5>
+        <p className="card-text">{feedbackPositive}</p>
+        <h5 className="card-title">Things to improve on</h5>
+        <p className="card-text">{feedbackNegative}</p>
+        <div className="card-footer">
+          <small className="text-muted">{`Feedback from : ${userName}`}</small>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };

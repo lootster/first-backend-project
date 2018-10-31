@@ -27,9 +27,13 @@ class Feedback extends Component {
 
   render() {
     const displayFeedbacks = this.state.posts.map((item, index) => {
-      return <FeedbackCard feedback={item} index={index} />;
+      return <FeedbackCard feedback={item} index={index} key={index} />;
     });
-    return <div>{displayFeedbacks}</div>;
+    return (
+      <div className="">
+        <div className="row">{displayFeedbacks}</div>
+      </div>
+    );
   }
 }
 

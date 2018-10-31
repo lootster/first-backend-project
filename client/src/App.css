@@ -23,6 +23,16 @@
   box-shadow: 5px 5px #5c5c5c;
 }
 
+.login {
+  text-align: center;
+  background-color: white;
+  max-width: 700px;
+  padding: 10px;
+  margin: 50px auto 200px auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px #5c5c5c;
+}
+
 label {
   width: 380px;
 }
@@ -34,4 +44,8 @@ form {
   padding: 10px 0;
   border-radius: 5px;
   box-shadow: 5px 5px #5c5c5c;
+}
+
+.card-body {
+  text-align: left
 }

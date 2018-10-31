@@ -14,7 +14,7 @@ class Login extends Component {
    }
   render() {
       return (
-        <div className="header">
+        <div className="login">
           <MuiThemeProvider>
             <div>
             <AppBar

@@ -3,6 +3,9 @@ const { Schema } = mongoose;
 const uniqueValidator = require("mongoose-unique-validator");
 
 const feedbackSchema = Schema({
+  userName: {
+    type: String
+  },
   session: {
     type: String,
   },
@@ -10,9 +13,6 @@ const feedbackSchema = Schema({
     type: String
   },
   feedbackNegative: {
-    type: String
-  },
-  userName: {
     type: String
   }
 });
