@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(193, 162, 223);
+  background-color: rgb(168, 235, 247);
   padding: 10px;
 }
 
@@ -20,7 +20,7 @@
   padding: 10px;
   margin: 5px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #5c5c5c;
+  box-shadow: 5px 5px #686868;
 }
 
 .feedback {
@@ -28,13 +28,17 @@
   background-color: white;
   max-width: 700px;
   padding: 10px;
-  margin: 20px auto 50px auto;
+  margin: 20px auto 30px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #5c5c5c;
+  box-shadow: 5px 5px #686868;
 }
 
 .form-group {
   margin: 15px;
+}
+
+.feedback-input {
+  width: 500px;
 }
 
 .login {
@@ -43,7 +47,7 @@
   padding: 10px;
   margin: 50px auto 200px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #5c5c5c;
+  box-shadow: 5px 5px #686868;
 }
 
 .register {
@@ -52,7 +56,7 @@
   padding: 10px;
   margin: 50px auto 200px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #5c5c5c;
+  box-shadow: 5px 5px #686868;
 }
 
 .card-body {

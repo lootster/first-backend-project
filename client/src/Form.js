@@ -44,7 +44,7 @@ class Form extends Component {
           <form onSubmit={this.handleSubmit}>
             <AppBar title="Feedback" />
             <div className="form-group">
-              <label>
+              <label className="feedback-input" >
                 <h4>Your name:</h4>
                 <input
                   className="form-control"
@@ -56,7 +56,7 @@ class Form extends Component {
               </label>
             </div>
             <div className="form-group">
-              <label>
+              <label className="feedback-input">
                 <h4>What was the title of the session?</h4>
                 <input
                   className="form-control"
@@ -68,7 +68,7 @@ class Form extends Component {
               </label>
             </div>
             <div className="form-group">
-              <label>
+              <label className="feedback-input">
                 <h4>What was good about the session?</h4>
                 <textarea
                   className="form-control"
@@ -81,7 +81,7 @@ class Form extends Component {
               </label>
             </div>
             <div className="form-group">
-              <label>
+              <label className="feedback-input">
                 <h4>What could be improved?</h4>
                 <textarea
                   className="form-control"
