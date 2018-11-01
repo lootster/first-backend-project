@@ -10,6 +10,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Feedback from "./Feedback";
 import Navigation from "./Navigation";
+import Register from "./Register";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/Register" component={Register} />
               <Route exact path="/feedback" component={Feedback} />
             </Switch>
           </div>

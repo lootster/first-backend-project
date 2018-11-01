@@ -18,13 +18,26 @@
   background-color: white;
   max-width: 700px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 5px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #5c5c5c;
 }
 
-.login {
+.feedback {
   text-align: center;
+  background-color: white;
+  max-width: 700px;
+  padding: 10px;
+  margin: 20px auto 50px auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px #5c5c5c;
+}
+
+.form-group {
+  margin: 15px;
+}
+
+.login {
   background-color: white;
   max-width: 700px;
   padding: 10px;
@@ -33,15 +46,11 @@
   box-shadow: 5px 5px #5c5c5c;
 }
 
-label {
-  width: 380px;
-}
-
-form {
+.register {
   background-color: white;
   max-width: 700px;
-  margin: 10px auto;
-  padding: 10px 0;
+  padding: 10px;
+  margin: 50px auto 200px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #5c5c5c;
 }

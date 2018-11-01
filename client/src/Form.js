@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import RaisedButton from "material-ui/RaisedButton";
 
 class Form extends Component {
   constructor(props) {
@@ -36,61 +39,71 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label>
-            <h4>Your name:</h4>
-            <input
-              className="form-control"
-              type="text"
-              name="userName"
-              value={this.state.userName}
-              onChange={this.handleChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <h4>What was the title of the session?</h4>
-            <input
-              className="form-control"
-              type="text"
-              name="session"
-              value={this.state.session}
-              onChange={this.handleChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <h4>What was good about the session?</h4>
-            <textarea
-              className="form-control"
-              rows="5"
-              type="text"
-              name="feedbackPositive"
-              value={this.state.feedbackPositive}
-              onChange={this.handleChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <h4>What could be improved?</h4>
-            <textarea
-              className="form-control"
-              rows="5"
-              type="text"
-              name="feedbackNegative"
-              value={this.state.feedbackNegative}
-              onChange={this.handleChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <input type="submit" className="btn btn-primary" value="Submit" />
-        </div>
-      </form>
+      <div className="feedback">
+        <MuiThemeProvider>
+          <form onSubmit={this.handleSubmit}>
+            <AppBar title="Feedback" />
+            <div className="form-group">
+              <label>
+                <h4>Your name:</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="userName"
+                  value={this.state.userName}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <h4>What was the title of the session?</h4>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="session"
+                  value={this.state.session}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <h4>What was good about the session?</h4>
+                <textarea
+                  className="form-control"
+                  rows="5"
+                  type="text"
+                  name="feedbackPositive"
+                  value={this.state.feedbackPositive}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <h4>What could be improved?</h4>
+                <textarea
+                  className="form-control"
+                  rows="5"
+                  type="text"
+                  name="feedbackNegative"
+                  value={this.state.feedbackNegative}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <RaisedButton
+                label="Submit"
+                primary={true}
+                type="submit"
+                value="Submit"
+              />
+            </div>
+          </form>
+        </MuiThemeProvider>
+      </div>
     );
   }
 }

@@ -30,8 +30,8 @@ class Feedback extends Component {
       return <FeedbackCard feedback={item} index={index} key={index} />;
     });
     return (
-      <div className="">
-        <div className="row">{displayFeedbacks}</div>
+      <div className="row">
+        {displayFeedbacks}
       </div>
     );
   }
