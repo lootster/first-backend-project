@@ -6,7 +6,7 @@ const FeedbackCard = props => {
     feedback: { userName, session, feedbackPositive, feedbackNegative }
   } = props;
   return (
-    <div class="col-sm-4">
+    <div className="col-sm-4">
     <div className="card border-dark mb-3">
       <h3 className="card-header">{`Feedback : ${index + 1}`}</h3>
       <div className="card-body">

@@ -8,12 +8,30 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: "",
-      last_name: "",
+      username: "",
       email: "",
       password: ""
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    alert("Registration received from " + this.state.username);
+
+    event.preventDefault();
+
+    fetch("/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(response => response.json())
+      .then(res => console.log(res));
+  }
+
   render() {
     return (
       <div className="register">
@@ -21,18 +39,10 @@ class Register extends Component {
           <div>
             <AppBar title="Register" />
             <TextField
-              hintText="Enter your First Name"
-              floatingLabelText="First Name"
+              hintText="Enter your username"
+              floatingLabelText="Username"
               onChange={(event, newValue) =>
-                this.setState({ first_name: newValue })
-              }
-            />
-            <br />
-            <TextField
-              hintText="Enter your Last Name"
-              floatingLabelText="Last Name"
-              onChange={(event, newValue) =>
-                this.setState({ last_name: newValue })
+                this.setState({ username: newValue })
               }
             />
             <br />
@@ -56,7 +66,7 @@ class Register extends Component {
               label="Submit"
               primary={true}
               style={style}
-              onClick={event => this.handleClick(event)}
+              onClick={event => this.handleSubmit(event)}
             />
           </div>
         </MuiThemeProvider>

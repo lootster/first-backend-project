@@ -8,10 +8,28 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    
+    event.preventDefault();
+
+    fetch("/users/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(response => response.json())
+      .then(res => console.log(res));
+  }
+
   render() {
     return (
       <div className="login">
@@ -22,7 +40,7 @@ class Login extends Component {
               hintText="Enter your Username"
               floatingLabelText="Username"
               onChange={(event, newValue) =>
-                this.setState({ username: newValue })
+                this.setState({ email: newValue })
               }
             />
             <br />
@@ -39,7 +57,7 @@ class Login extends Component {
               label="Submit"
               primary={true}
               style={style}
-              onClick={event => this.handleClick(event)}
+              onClick={event => this.handleSubmit(event)}
             />
           </div>
         </MuiThemeProvider>
