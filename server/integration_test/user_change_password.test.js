@@ -38,5 +38,6 @@ test("Change password on the current user", async () => {
 
   expect(response.statusCode).toBe(status.OK);
 
-  await loginAsTom(newPassword);
+  await loginAsTom(newPassword);  
 });
+
