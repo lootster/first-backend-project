@@ -1,5 +1,5 @@
 const loadFixture = require("mongoose-fixture-loader");
-const User = require("../src/model/user");
+const User = require("../models/user");
 
 const fixtures = {};
 

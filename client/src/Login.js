@@ -11,12 +11,10 @@ class Login extends Component {
       email: "",
       password: ""
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    
     event.preventDefault();
 
     fetch("/users/login", {

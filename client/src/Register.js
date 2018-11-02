@@ -12,7 +12,6 @@ class Register extends Component {
       email: "",
       password: ""
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -54,8 +53,8 @@ class Register extends Component {
             />
             <br />
             <TextField
-              type="password"
               hintText="Enter your Password"
+              type="password"
               floatingLabelText="Password"
               onChange={(event, newValue) =>
                 this.setState({ password: newValue })
