@@ -3,6 +3,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 
+
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    alert("A feedback was submitted by " + this.state.userName);
+    alert("Feedback received and was submitted by " + this.state.userName);
 
     event.preventDefault();
 
@@ -34,7 +35,14 @@ class Form extends Component {
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(res => console.log(res));
+      .then(res => console.log(res.status));
+    
+    this.setState({
+      userName: "",
+      session: "",
+      feedbackPositive: "",
+      feedbackNegative: ""
+    });
   }
 
   render() {
@@ -42,16 +50,17 @@ class Form extends Component {
       <div className="feedback">
         <MuiThemeProvider>
           <form onSubmit={this.handleSubmit}>
-            <AppBar title="Feedback" />
+            <AppBar title="Feedback Form" />
             <div className="form-group">
               <label className="feedback-input" >
-                <h4>Your name:</h4>
+                <h4>Please enter your full name:</h4>
                 <input
                   className="form-control"
                   type="text"
                   name="userName"
                   value={this.state.userName}
                   onChange={this.handleChange}
+                  required
                 />
               </label>
             </div>
@@ -64,6 +73,7 @@ class Form extends Component {
                   name="session"
                   value={this.state.session}
                   onChange={this.handleChange}
+                  required
                 />
               </label>
             </div>
@@ -77,6 +87,7 @@ class Form extends Component {
                   name="feedbackPositive"
                   value={this.state.feedbackPositive}
                   onChange={this.handleChange}
+                  required
                 />
               </label>
             </div>
@@ -90,6 +101,7 @@ class Form extends Component {
                   name="feedbackNegative"
                   value={this.state.feedbackNegative}
                   onChange={this.handleChange}
+                  required
                 />
               </label>
             </div>

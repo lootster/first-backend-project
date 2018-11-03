@@ -2,19 +2,27 @@ import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
-import TextField from "material-ui/TextField";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      redirect: false,
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
-  handleSubmit(event) {
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  login(event) {
     event.preventDefault();
 
     fetch("/users/login", {
@@ -25,46 +33,86 @@ class Login extends Component {
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(res => console.log(res));
+      .then(response => {
+        let responseJSON = response;
+        if (responseJSON.user) {
+          sessionStorage.setItem("user", responseJSON);
+          this.setState({ redirect: true });
+        } else {
+          console.log("Login Error");
+        }
+      });
+
+    this.setState({
+      email: "",
+      password: "",
+    });
+  }
+
+  logout(event) {
+    sessionStorage.setItem("user", "");
+    sessionStorage.clear();
   }
 
   render() {
+
+    if(this.state.redirect){
+      return (<Redirect to={'/feedback'} />)
+    }
+
     return (
       <div className="login">
         <MuiThemeProvider>
           <div>
-            <AppBar title="Login" />
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) =>
-                this.setState({ email: newValue })
-              }
-            />
-            <br />
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) =>
-                this.setState({ password: newValue })
-              }
-            />
-            <br />
-            <RaisedButton
-              label="Submit"
-              primary={true}
-              style={style}
-              onClick={event => this.handleSubmit(event)}
-            />
+          <form onSubmit={this.login}>
+            <AppBar title="User Login Form" />
+            <div className="form-group">
+              <label className="user-input">
+                <h4>Enter your email: </h4>
+                <input
+                  className="form-control"
+                  type="email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label className="user-input">
+                <h4>Enter your password:</h4>
+                <input
+                  className="form-control"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <RaisedButton
+                label="Login"
+                primary={true}
+                type="login"
+                value="login"
+              />
+            </div>
+          </form>
+          <RaisedButton
+            label="Logout"
+            primary={true}
+            type="logout"
+            value="logout"
+            onClick={event => this.logout(event)}
+          />
           </div>
         </MuiThemeProvider>
       </div>
     );
   }
 }
-const style = {
-  margin: 15
-};
 
 export default Login;

@@ -7,14 +7,19 @@ async function registerNewUser(req, res) {
   user.username = req.body.username;
   user.email = req.body.email;
   user.setPassword(req.body.password);
-
-  await user.save();
-  return res.json({
-    user: {
-      username: user.username,
-      email: user.email
-    }
-  });
+  try {
+    await user.save();
+    return res.json({
+      user: {
+        username: user.username,
+        email: user.email
+      }
+    });
+  } catch (error) {
+    res.status(404).json({
+      message: error.message
+    })
+  }
 }
 
 async function login(req, res) {
@@ -53,11 +58,19 @@ async function changePassword(req, res) {
   }
 
   await user.save();
-  return res.json({ status: "done" });
+  return res.json({
+    status: "done"
+  });
+}
+
+async function logout(req, res) {
+  res.clearCookie("jwt");
+  res.json({ status: "done" });
 }
 
 module.exports = {
   registerNewUser,
   login,
+  logout,
   changePassword
 };

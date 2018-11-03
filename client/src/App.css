@@ -17,7 +17,7 @@
   text-align: center;
   background-color: white;
   max-width: 700px;
-  padding: 10px;
+  padding: 5px;
   margin: 5px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #686868;
@@ -57,6 +57,11 @@
   margin: 50px auto 150px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #686868;
+}
+
+.user-input {
+  width: 300px;
+  text-align: left
 }
 
 .card-body {

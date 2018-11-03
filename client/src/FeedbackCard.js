@@ -12,9 +12,9 @@ const FeedbackCard = props => {
       <div className="card-body">
         <h5 className="card-title">Title of the session</h5>
         <p className="card-text">{session}</p>
-        <h5 className="card-title">Comments about session</h5>
+        <h5 className="card-title">Comments about the session</h5>
         <p className="card-text">{feedbackPositive}</p>
-        <h5 className="card-title">Things to improve on</h5>
+        <h5 className="card-title">Suggestions for the session</h5>
         <p className="card-text">{feedbackNegative}</p>
         <div className="card-footer">
           <small className="text-muted">{`Feedback from : ${userName}`}</small>

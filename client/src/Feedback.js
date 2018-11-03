@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import FeedbackCard from "./FeedbackCard";
+import { Redirect } from "react-router-dom";
 
 class Feedback extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      redirect: false
     };
+  }
+
+  componentWillMount() {
+    if(sessionStorage.getItem('user')){
+      console.log("Call user feed");
+    }
+    else{
+      this.setState({redirect: true});
+    }
   }
 
   componentDidMount() {
@@ -26,6 +37,11 @@ class Feedback extends Component {
   }
 
   render() {
+
+    if(this.state.redirect){
+      return (<Redirect to={'/login'} />)
+    }
+
     const displayFeedbacks = this.state.posts.map((item, index) => {
       return <FeedbackCard feedback={item} index={index} key={index} />;
     });
