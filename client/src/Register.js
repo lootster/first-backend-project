@@ -46,13 +46,14 @@ class Register extends Component {
       <div className="register">
         <MuiThemeProvider>
           <form onSubmit={this.handleSubmit}>
-            <AppBar title="User Registration Form" />
+            <AppBar title="User Signup" />
             <div className="form-group">
               <label className="user-input">
                 <h4>Enter your username:</h4>
                 <input
                   className="form-control"
                   type="text"
+                  placeholder="sheldon"
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
@@ -66,6 +67,7 @@ class Register extends Component {
                 <input
                   className="form-control"
                   type="email"
+                  placeholder="sheldon@gmail.com"
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}

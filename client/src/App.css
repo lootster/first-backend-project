@@ -17,7 +17,7 @@
   text-align: center;
   background-color: white;
   max-width: 700px;
-  padding: 5px;
+  padding: 10px;
   margin: 5px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #686868;
@@ -64,6 +64,14 @@
   text-align: left
 }
 
+#feedback-card {
+  margin: 20px auto;
+}
+
 .card-body {
   text-align: left
+}
+
+.hide-btn {
+  display: none;
 }

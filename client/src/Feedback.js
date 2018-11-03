@@ -9,14 +9,15 @@ class Feedback extends Component {
       posts: [],
       redirect: false
     };
+
+    this.logout = this.logout.bind(this);
   }
 
   componentWillMount() {
-    if(sessionStorage.getItem('user')){
+    if (sessionStorage.getItem("user")) {
       console.log("Call user feed");
-    }
-    else{
-      this.setState({redirect: true});
+    } else {
+      this.setState({ redirect: true });
     }
   }
 
@@ -36,18 +37,32 @@ class Feedback extends Component {
       .catch(err => console.log(err));
   }
 
-  render() {
+  logout(event) {
+    sessionStorage.setItem("user", "");
+    sessionStorage.clear();
+    alert(
+      "You have logged out successfully!\nPlease login again to view feedbacks"
+    );
+    this.setState({ redirect: true });
+  }
 
-    if(this.state.redirect){
-      return (<Redirect to={'/login'} />)
+  render() {
+    if (this.state.redirect) {
+      return <Redirect to={"/login"} />;
     }
 
     const displayFeedbacks = this.state.posts.map((item, index) => {
       return <FeedbackCard feedback={item} index={index} key={index} />;
     });
     return (
-      <div className="row">
-        {displayFeedbacks}
+      <div>
+        <div className="header">
+          <h5>Click on button below to sign out</h5>
+          <button type="button" className="btn btn-danger" onClick={this.logout}>
+            Logout
+          </button>
+        </div>
+        <div className="row" id="feedback-card">{displayFeedbacks}</div>
       </div>
     );
   }

@@ -10,12 +10,18 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      redirect: false,
+      redirect: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
+  }
+
+  componentWillMount() {
+    if(sessionStorage.getItem('user')){
+      this.setState({redirect: true});
+      console.log("Sign out before viewing login page");
+    }
   }
 
   handleChange(event) {
@@ -38,6 +44,7 @@ class Login extends Component {
         if (responseJSON.user) {
           sessionStorage.setItem("user", responseJSON);
           this.setState({ redirect: true });
+          console.log(this.state.redirect);
         } else {
           console.log("Login Error");
         }
@@ -45,69 +52,59 @@ class Login extends Component {
 
     this.setState({
       email: "",
-      password: "",
+      password: ""
     });
-  }
-
-  logout(event) {
-    sessionStorage.setItem("user", "");
-    sessionStorage.clear();
   }
 
   render() {
 
-    if(this.state.redirect){
-      return (<Redirect to={'/feedback'} />)
+    if (this.state.redirect) {
+      return <Redirect to={"/feedback"} />;
     }
 
     return (
       <div className="login">
         <MuiThemeProvider>
           <div>
-          <form onSubmit={this.login}>
-            <AppBar title="User Login Form" />
-            <div className="form-group">
-              <label className="user-input">
-                <h4>Enter your email: </h4>
-                <input
-                  className="form-control"
-                  type="email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  required
+            <form onSubmit={this.login}>
+              <AppBar title="User Login" />
+              <div className="form-group">
+                <label className="user-input">
+                  <h6> -Please sign-in below to view feedbacks-</h6>
+                  <h4>Enter your email: </h4>
+                  <input
+                    className="form-control"
+                    type="email"
+                    placeholder="sheldon@gmail.com"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="form-group">
+                <label className="user-input">
+                  <h4>Enter your password:</h4>
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="form-group">
+                <RaisedButton
+                  label="Login"
+                  primary={true}
+                  type="login"
+                  value="login"
                 />
-              </label>
-            </div>
-            <div className="form-group">
-              <label className="user-input">
-                <h4>Enter your password:</h4>
-                <input
-                  className="form-control"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <RaisedButton
-                label="Login"
-                primary={true}
-                type="login"
-                value="login"
-              />
-            </div>
-          </form>
-          <RaisedButton
-            label="Logout"
-            primary={true}
-            type="logout"
-            value="logout"
-            onClick={event => this.logout(event)}
-          />
+              </div>
+            </form>
           </div>
         </MuiThemeProvider>
       </div>
