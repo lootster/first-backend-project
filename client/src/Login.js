@@ -70,12 +70,14 @@ class Login extends Component {
               <AppBar title="User Login" />
               <div className="form-group">
                 <label className="user-input">
-                  <h6> -Please sign-in below to view feedbacks-</h6>
+                  <div className="sign-in-message">
+                    <h6>Please sign in below to view feedback</h6>
+                  </div>
                   <h4>Enter your email: </h4>
                   <input
                     className="form-control"
                     type="email"
-                    placeholder="sheldon@gmail.com"
+                    placeholder="Enter your registered email"
                     name="email"
                     value={this.state.email}
                     onChange={this.handleChange}
@@ -89,6 +91,7 @@ class Login extends Component {
                   <input
                     className="form-control"
                     type="password"
+                    placeholder="Enter your registered password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
