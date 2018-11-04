@@ -5,7 +5,7 @@
 }
 
 .navlink {
-  font-size: 17px ;
+  font-size: 20px;
   padding: 5px;
   max-width: 700px;
   display: flex;
@@ -39,7 +39,6 @@
 
 .feedback-input {
   width: 500px;
-  max-width: 100%;
 }
 
 .login {
@@ -49,12 +48,6 @@
   margin: 50px auto 220px auto;
   border-radius: 5px;
   box-shadow: 5px 5px #686868;
-}
-
-.sign-in-message {
-  color: crimson;
-  text-align: center;
-  margin: 15px auto;
 }
 
 .register {

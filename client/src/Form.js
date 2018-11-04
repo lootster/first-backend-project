@@ -23,7 +23,7 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    alert("Received feedback submitted by " + this.state.userName);
+    alert("Feedback received and was submitted by " + this.state.userName);
 
     event.preventDefault();
 

@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
-const {
-  Schema
-} = mongoose;
+const { Schema } = mongoose;
 const uniqueValidator = require("mongoose-unique-validator");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-const {
-  secret
-} = require("../config/jwt");
+const { secret } = require("../config/jwt");
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -28,7 +24,7 @@ const UserSchema = new mongoose.Schema({
   passwordSalt: String
 });
 
-UserSchema.methods.setPassword = function (password) {
+UserSchema.methods.setPassword = function(password) {
   this.passwordSalt = generateSalt();
   this.passwordHash = hashPassword(password, this.passwordSalt);
 };
@@ -43,20 +39,19 @@ function hashPassword(password, salt) {
     .toString("hex");
 }
 
-UserSchema.methods.validPassword = function (password) {
+UserSchema.methods.validPassword = function(password) {
   return this.passwordHash === hashPassword(password, this.passwordSalt);
 };
 
-UserSchema.plugin(uniqueValidator, {
-  message: "has already been taken"
-});
+UserSchema.plugin(uniqueValidator, { message: "should be unique" });
 
-UserSchema.methods.generateJWT = function () {
+UserSchema.methods.generateJWT = function() {
   const today = new Date();
   const exp = new Date(today);
   exp.setDate(today.getDate() + 60);
 
-  return jwt.sign({
+  return jwt.sign(
+    {
       userid: this._id,
       username: this.username,
       exp: parseInt(exp.getTime() / 1000)
@@ -65,7 +60,7 @@ UserSchema.methods.generateJWT = function () {
   );
 };
 
-UserSchema.methods.verifyJWT = function (token) {
+UserSchema.methods.verifyJWT = function(token) {
   try {
     jwt.verify(token, secret);
     return true;
