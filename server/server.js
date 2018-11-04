@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const app = require('./app');
+const staticFiles = express.static(path.join(__dirname, "../client/build"));
+
+if (isProduction) {
+  app.use(staticFiles);
+}
 
 mongoose.connect("mongodb://localhost/first-backend-project", {
   useNewUrlParser: true

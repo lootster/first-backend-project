@@ -6,7 +6,9 @@
   "scripts": {
     "start:client": "cd client&&npm start",
     "start:server": "cd server&&npm start",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "build": "concurrently \"cd client && npm run build\"",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
