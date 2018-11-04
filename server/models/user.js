@@ -43,7 +43,7 @@ UserSchema.methods.validPassword = function(password) {
   return this.passwordHash === hashPassword(password, this.passwordSalt);
 };
 
-UserSchema.plugin(uniqueValidator, { message: "should be unique" });
+UserSchema.plugin(uniqueValidator, { message: "has already been taken" });
 
 UserSchema.methods.generateJWT = function() {
   const today = new Date();

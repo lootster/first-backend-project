@@ -32,7 +32,20 @@ class Register extends Component {
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        if (response.user === undefined) {
+          alert("Error! " + response.message);
+        } else {
+          alert(
+            "Success! New user registered with following info:\nUsername: " +
+              response.user.username +
+              "\nEmail: " +
+              response.user.email +
+              "\nPlease login with your email and password."
+          );
+        }
+      });
 
     this.setState({
       username: "",
@@ -53,7 +66,7 @@ class Register extends Component {
                 <input
                   className="form-control"
                   type="text"
-                  placeholder="sheldon"
+                  placeholder="eg. sheldon"
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
@@ -67,7 +80,7 @@ class Register extends Component {
                 <input
                   className="form-control"
                   type="email"
-                  placeholder="sheldon@gmail.com"
+                  placeholder="eg. sheldon@gmail.com"
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
@@ -81,6 +94,7 @@ class Register extends Component {
                 <input
                   className="form-control"
                   type="password"
+                  placeholder="Contain at least 5 characters"
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}

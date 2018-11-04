@@ -15,7 +15,7 @@ class Feedback extends Component {
 
   componentWillMount() {
     if (sessionStorage.getItem("user")) {
-      console.log("Call user feed");
+      console.log("User login session started");
     } else {
       this.setState({ redirect: true });
     }
@@ -38,16 +38,21 @@ class Feedback extends Component {
   }
 
   logout(event) {
+    
     sessionStorage.setItem("user", "");
     sessionStorage.clear();
-    alert(
-      "You have logged out successfully!\nPlease login again to view feedbacks"
-    );
+    
     this.setState({ redirect: true });
+    
+    console.log("User login session ended");
+    alert(
+      "You have been logged out."
+    );
   }
 
   render() {
     if (this.state.redirect) {
+      alert("Please sign in to view feedback.\nRe-directing to login page.");
       return <Redirect to={"/login"} />;
     }
 
