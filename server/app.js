@@ -3,12 +3,16 @@ const feedbacks = require('./routes/feedbacks')
 const users = require('./routes/users')
 const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
 
 const isMongooseConnectionProvided = process.env.NODE_ENV === "integration";
 
 if (!isMongooseConnectionProvided) {
   mongoose.connect(process.env.MONGODB_URL);
 }
+
+const staticFiles = express.static(path.join(__dirname, "../client/build"));
+app.use(staticFiles);
 
 app.use(express.json());
 

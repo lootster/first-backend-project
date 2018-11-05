@@ -6,8 +6,19 @@
   "scripts": {
     "start:client": "cd client&&npm start",
     "start:server": "cd server&&npm start",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:prod:server": "cd server&&npm run start",
+    "build": "cd client&&npm run build",
+    "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": "^10.10.0"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules",
+    "server/node_modules"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lootster/first-backend-project.git"
