@@ -8,7 +8,7 @@ const path = require("path");
 const isMongooseConnectionProvided = process.env.NODE_ENV === "integration";
 
 if (!isMongooseConnectionProvided) {
-  mongoose.connect(process.env.MONGODB_URL);
+  mongoose.connect(process.env.MONGODB_URI);
 }
 
 const staticFiles = express.static(path.join(__dirname, "../client/build"));
