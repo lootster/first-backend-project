@@ -38,16 +38,13 @@ class Feedback extends Component {
   }
 
   logout(event) {
-    
     sessionStorage.setItem("user", "");
     sessionStorage.clear();
-    
+
     this.setState({ redirect: true });
-    
+
     console.log("User login session ended");
-    alert(
-      "You have been logged out."
-    );
+    alert("You have been logged out.");
   }
 
   render() {
@@ -63,11 +60,17 @@ class Feedback extends Component {
       <div>
         <div className="header">
           <h5>Click on button below to sign out</h5>
-          <button type="button" className="btn btn-danger" onClick={this.logout}>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={this.logout}
+          >
             Logout
           </button>
         </div>
-        <div className="row" id="feedback-card">{displayFeedbacks}</div>
+        <div className="row" id="feedback-card">
+          {displayFeedbacks}
+        </div>
       </div>
     );
   }

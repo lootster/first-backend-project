@@ -62,12 +62,12 @@ describe("Unique fields in User model", () => {
 
   it("should not allow two users with the same name", async () => {
     let userWithSameName = new User({ username: username1, email: email2 });
-    await expect(userWithSameName.save()).rejects.toThrow("username: should be unique");
+    await expect(userWithSameName.save()).rejects.toThrow("username: has already been taken");
   });
 
   it("should not allow two users with the same email", async () => {
     let userWithSameEmail = new User({ username: username2, email: email1 });
-    await expect(userWithSameEmail.save()).rejects.toThrow("email: should be unique");
+    await expect(userWithSameEmail.save()).rejects.toThrow("email: has already been taken");
   });
 });
 // Test cases for checking some fields are case-insensitive
