@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "install": "concurrently \"cd client&&npm install\" \"cd server&&npm install\"",
-    "start:client": "cd client&&npm start",
-    "start:server": "cd server&&npm start",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:dev:client": "cd client&&npm start",
+    "start:dev:server": "cd server&&npm dev",
+    "start": "concurrently \"npm run start:dev:client\" \"npm run start:dev:server\"",
     "start:prod:server": "cd server&&npm run start",
     "build": "cd client&&npm run build",
     "heroku-postbuild": "npm run build"
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/lootster/first-backend-project#readme",
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0"
   }
 }
