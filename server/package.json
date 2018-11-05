@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "cross-env NODE_ENV=local nodemon server.js",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

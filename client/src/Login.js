@@ -47,6 +47,7 @@ class Login extends Component {
           console.log(this.state.redirect);
         } else {
           console.log("Login Error");
+          alert("User not found")
         }
       });
 
