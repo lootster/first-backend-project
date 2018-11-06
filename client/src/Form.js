@@ -3,7 +3,6 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 
-
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,7 @@ class Form extends Component {
     })
       .then(response => response.json())
       .then(res => console.log(res.status));
-    
+
     this.setState({
       userName: "",
       session: "",
@@ -51,8 +50,13 @@ class Form extends Component {
         <MuiThemeProvider>
           <form onSubmit={this.handleSubmit}>
             <AppBar title="Feedback Form" />
+            <br />
+            <p>
+              Please help us improve by sharing your honest feedback for the
+              session that just happened!
+            </p>
             <div className="form-group">
-              <label className="feedback-input" >
+              <label className="feedback-input">
                 <h4>Please enter your full name:</h4>
                 <input
                   className="form-control"

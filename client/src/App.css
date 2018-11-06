@@ -6,21 +6,15 @@
 
 .navlink {
   font-size: 17px;
-  padding: 5px;
-  max-width: 700px;
+  padding: 10px;
+  width: 700px;
+  max-width: 100%;
   display: flex;
   justify-content: space-evenly;
-  margin: auto;
-}
-
-.header {
-  text-align: center;
+  margin: 20px auto;
   background-color: white;
-  max-width: 700px;
-  padding: 10px;
-  margin: 5px auto;
+  box-shadow: 5px 5px 5px #686868;
   border-radius: 5px;
-  box-shadow: 5px 5px #686868;
 }
 
 .feedback {
@@ -28,9 +22,9 @@
   background-color: white;
   max-width: 700px;
   padding: 10px;
-  margin: 20px auto 30px auto;
+  margin: 30px auto 30px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #686868;
+  box-shadow: 5px 5px 5px #686868;
 }
 
 .form-group {
@@ -46,9 +40,9 @@
   background-color: white;
   max-width: 700px;
   padding: 10px;
-  margin: 50px auto 220px auto;
+  margin: 30px auto 170px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #686868;
+  box-shadow: 5px 5px 5px #686868;
 }
 
 .sign-in-message {
@@ -61,9 +55,9 @@
   background-color: white;
   max-width: 700px;
   padding: 10px;
-  margin: 50px auto 150px auto;
+  margin: 30px auto 120px auto;
   border-radius: 5px;
-  box-shadow: 5px 5px #686868;
+  box-shadow: 5px 5px 5px #686868;
 }
 
 .user-input {
@@ -71,8 +65,126 @@
   text-align: left
 }
 
-#feedback-card {
+.username-icon input[type=text] {
+  padding-left: 40px;
+}
+
+.username-icon {
+  position: relative;
+}
+
+.username-icon i {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 2px 8px;
+  color: #686868 ;
+  transition: .3s;
+}
+
+.username-icon input[type=text]:focus + i {
+  color: dodgerblue;
+}
+
+.email-icon input[type=email] {
+  padding-left: 40px;
+}
+
+.email-icon {
+  position: relative;
+}
+
+.email-icon i {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 2px 8px;
+  color: #686868 ;
+  transition: .3s;
+}
+
+.email-icon input[type=email]:focus + i {
+  color: dodgerblue;
+}
+
+/* Password */
+.password-icon input[type=password] {
+  padding-left: 40px;
+}
+
+.password-icon {
+  position: relative;
+}
+
+.password-icon i {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 2px 8px;
+  color: #686868 ;
+  transition: .3s;
+}
+
+.password-icon input[type=password]:focus + i {
+  color: dodgerblue;
+}
+
+/* search icon within input field*/
+.search-icon input[type=search] {
+  padding-left: 40px;
+}
+
+.search-icon {
+  position: relative;
+}
+
+.search-icon i {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 6px 20px;
+  color: #686868 ;
+  transition: .3s;
+}
+
+.search-icon input[type=search]:focus + i {
+  color: dodgerblue;
+}
+
+/* Styling each indiviual feedback displayed */
+.feedback-card-header {
+  padding: 10px;
+  width: 700px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  background-color: white;
+  box-shadow: 5px 5px 5px #686868;
+  border-radius: 5px;
+}
+
+#search-input {
+  width: 100%;
+  margin: 5px 10px;
+}
+
+#feedback-card-container {
   margin: 20px auto;
+}
+
+.no-feedback-card-container {
+  margin: 210px auto;
+  color: white;
+  text-shadow: 2px 2px #686868;
+}
+
+#feedback-card {
+  box-shadow: 5px 5px 5px #686868;
+}
+
+.no-name-found {
+  text-align: center;
 }
 
 .card-body {

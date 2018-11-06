@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
+import { Redirect } from "react-router-dom";
 
 class Register extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class Register extends Component {
       username: "",
       email: "",
       password: "",
-      error: ""
+      error: "",
+      redirect: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -42,8 +44,9 @@ class Register extends Component {
               response.user.username +
               "\nEmail: " +
               response.user.email +
-              "\nPlease login with your email and password."
+              "\nPlease login with your email and password.\nRe-directing to login page."
           );
+          this.setState({ redirect: true });
         }
       });
 
@@ -55,6 +58,10 @@ class Register extends Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={"/login"} />;
+    }
+
     return (
       <div className="register">
         <MuiThemeProvider>
@@ -62,44 +69,56 @@ class Register extends Component {
             <AppBar title="User Signup" />
             <div className="form-group">
               <label className="user-input">
+                <div className="sign-in-message">
+                  <h6>Register for an account to view feedback</h6>
+                </div>
                 <h4>Enter your username:</h4>
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="eg. sheldon"
-                  name="username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  required
-                />
+                <div className="username-icon">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="eg. sheldon"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <i class="fa fa-user" />
+                </div>
               </label>
             </div>
             <div className="form-group">
               <label className="user-input">
                 <h4>Enter your email: </h4>
-                <input
-                  className="form-control"
-                  type="email"
-                  placeholder="eg. sheldon@gmail.com"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  required
-                />
+                <div className="email-icon">
+                  <input
+                    className="form-control"
+                    type="email"
+                    placeholder="eg. sheldon@gmail.com"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <i class="fa fa-envelope" />
+                </div>
               </label>
             </div>
             <div className="form-group">
               <label className="user-input">
                 <h4>Enter your password:</h4>
-                <input
-                  className="form-control"
-                  type="password"
-                  placeholder="Contain at least 5 characters"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
+                <div className="password-icon">
+                  <input
+                    className="form-control"
+                    type="password"
+                    placeholder="Contain at least 5 characters"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <i class="fas fa-unlock-alt" />
+                </div>
               </label>
             </div>
             {this.state.error && (

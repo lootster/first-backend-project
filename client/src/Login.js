@@ -67,13 +67,14 @@ class Login extends Component {
         <MuiThemeProvider>
           <div>
             <form onSubmit={this.login}>
-              <AppBar title="User Login" />
+              <AppBar title="User Login" color="default" />
               <div className="form-group">
                 <label className="user-input">
                   <div className="sign-in-message">
                     <h6>Please sign in below to view feedback</h6>
                   </div>
                   <h4>Enter your email: </h4>
+                  <div className="email-icon">
                   <input
                     className="form-control"
                     type="email"
@@ -83,11 +84,14 @@ class Login extends Component {
                     onChange={this.handleChange}
                     required
                   />
+                  <i class="fa fa-envelope" />
+                  </div>
                 </label>
               </div>
               <div className="form-group">
                 <label className="user-input">
                   <h4>Enter your password:</h4>
+                  <div className="password-icon">
                   <input
                     className="form-control"
                     type="password"
@@ -97,6 +101,8 @@ class Login extends Component {
                     onChange={this.handleChange}
                     required
                   />
+                  <i class="fas fa-unlock-alt" />
+                  </div>
                 </label>
               </div>
               <div className="form-group">

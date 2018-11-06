@@ -7,10 +7,12 @@ class Feedback extends Component {
     super(props);
     this.state = {
       posts: [],
+      searchByName: "",
       redirect: false
     };
 
     this.logout = this.logout.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillMount() {
@@ -37,6 +39,10 @@ class Feedback extends Component {
       .catch(err => console.log(err));
   }
 
+  handleChange(event) {
+    this.setState({ searchByName: event.target.value.toLowerCase() });
+  }
+
   logout(event) {
     sessionStorage.setItem("user", "");
     sessionStorage.clear();
@@ -48,18 +54,46 @@ class Feedback extends Component {
   }
 
   render() {
-    if (this.state.redirect) {
+    const { posts, searchByName, redirect } = this.state;
+
+    if (redirect) {
       alert("Please sign in to view feedback.\nRe-directing to login page.");
       return <Redirect to={"/login"} />;
     }
 
-    const displayFeedbacks = this.state.posts.map((item, index) => {
-      return <FeedbackCard feedback={item} index={index} key={index} />;
+    const filterPosts = posts.filter(item => {
+      return (
+        item.userName !== null &&
+        item.userName.toLowerCase().includes(searchByName)
+      );
     });
+
+    const displayFeedbacks =
+      filterPosts.length > 0 ? (
+        filterPosts.map((item, index) => {
+          return <FeedbackCard feedback={item} index={index} key={index} />;
+        })
+      ) : (
+        <div className="no-feedback-card-container">
+          <h1>No respondent's name found</h1>
+        </div>
+      );
+
     return (
       <div>
-        <div className="header">
-          <h5>Click on button below to sign out</h5>
+        <div className="feedback-card-header">
+          <form className="form-inline my-2 my-lg-0">
+            <div className="search-icon">
+              <input
+                class="form-control mr-sm-2"
+                id="search-input"
+                type="search"
+                placeholder="Search feedback by name"
+                onChange={this.handleChange}
+              />
+              <i class="fas fa-search" />
+            </div>
+          </form>
           <button
             type="button"
             className="btn btn-danger"
@@ -68,7 +102,7 @@ class Feedback extends Component {
             Logout
           </button>
         </div>
-        <div className="row" id="feedback-card">
+        <div className="row" id="feedback-card-container">
           {displayFeedbacks}
         </div>
       </div>
