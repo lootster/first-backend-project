@@ -117,7 +117,7 @@ class Register extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fas fa-unlock-alt" />
+                  <i class="fa fa-unlock-alt" />
                 </div>
               </label>
             </div>

@@ -65,6 +65,7 @@
   text-align: left
 }
 
+/* create user icon within input field*/
 .username-icon input[type=text] {
   padding-left: 40px;
 }
@@ -78,14 +79,15 @@
   left: 0;
   top: 10px;
   padding: 2px 8px;
-  color: #686868 ;
+  color: #686868;
   transition: .3s;
 }
 
-.username-icon input[type=text]:focus + i {
+.username-icon input[type=text]:focus+i {
   color: dodgerblue;
 }
 
+/* create email icon within input field*/
 .email-icon input[type=email] {
   padding-left: 40px;
 }
@@ -99,15 +101,15 @@
   left: 0;
   top: 10px;
   padding: 2px 8px;
-  color: #686868 ;
+  color: #686868;
   transition: .3s;
 }
 
-.email-icon input[type=email]:focus + i {
+.email-icon input[type=email]:focus+i {
   color: dodgerblue;
 }
 
-/* Password */
+/* create password icon within input field*/
 .password-icon input[type=password] {
   padding-left: 40px;
 }
@@ -121,15 +123,15 @@
   left: 0;
   top: 10px;
   padding: 2px 8px;
-  color: #686868 ;
+  color: #686868;
   transition: .3s;
 }
 
-.password-icon input[type=password]:focus + i {
+.password-icon input[type=password]:focus+i {
   color: dodgerblue;
 }
 
-/* search icon within input field*/
+/* create search icon within input field*/
 .search-icon input[type=search] {
   padding-left: 40px;
 }
@@ -143,11 +145,11 @@
   left: 0;
   top: 10px;
   padding: 6px 20px;
-  color: #686868 ;
+  color: #686868;
   transition: .3s;
 }
 
-.search-icon input[type=search]:focus + i {
+.search-icon input[type=search]:focus+i {
   color: dodgerblue;
 }
 

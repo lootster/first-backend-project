@@ -91,7 +91,7 @@ class Feedback extends Component {
                 placeholder="Search feedback by name"
                 onChange={this.handleChange}
               />
-              <i class="fas fa-search" />
+              <i class="fa fa-search" />
             </div>
           </form>
           <button
