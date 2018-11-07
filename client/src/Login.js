@@ -84,7 +84,7 @@ class Login extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fa fa-envelope" />
+                  <i className="fa fa-envelope" />
                   </div>
                 </label>
               </div>
@@ -101,7 +101,7 @@ class Login extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fa fa-unlock-alt" />
+                  <i className="fa fa-unlock-alt" />
                   </div>
                 </label>
               </div>

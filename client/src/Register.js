@@ -83,7 +83,7 @@ class Register extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fa fa-user" />
+                  <i className="fa fa-user" />
                 </div>
               </label>
             </div>
@@ -100,7 +100,7 @@ class Register extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fa fa-envelope" />
+                  <i className="fa fa-envelope" />
                 </div>
               </label>
             </div>
@@ -117,7 +117,7 @@ class Register extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <i class="fa fa-unlock-alt" />
+                  <i className="fa fa-unlock-alt" />
                 </div>
               </label>
             </div>

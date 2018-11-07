@@ -85,13 +85,13 @@ class Feedback extends Component {
           <form className="form-inline my-2 my-lg-0">
             <div className="search-icon">
               <input
-                class="form-control mr-sm-2"
+                className="form-control mr-sm-2"
                 id="search-input"
                 type="search"
                 placeholder="Search feedback by name"
                 onChange={this.handleChange}
               />
-              <i class="fa fa-search" />
+              <i className="fa fa-search" />
             </div>
           </form>
           <button
