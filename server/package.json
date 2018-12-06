@@ -27,7 +27,6 @@
     "jest": "^23.6.0",
     "mongodb-memory-server": "^2.6.2",
     "mongoose-fixture-loader": "^1.0.2",
-    "nodemon": "^1.18.5",
     "supertest": "^3.3.0"
   }
 }
