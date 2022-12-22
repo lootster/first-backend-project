@@ -19,7 +19,7 @@
     "express-async-wrap": "^1.0.0",
     "express-jwt": "^5.3.1",
     "http-status": "^1.2.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.3.7",
     "mongoose-unique-validator": "^2.0.2"
   },
